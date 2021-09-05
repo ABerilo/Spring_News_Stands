@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Newspaper</title>
+</head>
+<body>
+<h1> Newspaper</h1>
+<div th:each="newspaper : ${newspapers}">
+  <a th:href="@{/newspaper/{id}(id=${newspaper.getId()})}"
+     th:text="${newspaper.getName()+' '+ newspaper.getNumber()+' '+ newspaper.getDate()}">user</a>
+</div>
+
+<br/>
+<hr/>
+
+<a href="/newspaper/new">Create new newspaper</a></br>
+<a href="/">Back to menu</a>
+
+</body>
+</html>

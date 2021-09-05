@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Newspaper</title>
+</head>
+<body>
+<h1>Newspaper change</h1>
+<form th:method="PATCH" th:action="@{/newspaper/{id}(id=${newspaper.getId()})}" th:object="${newspaper}">
+  <label for="name">Enter name: </label>
+  <input type="text" th:field="*{name}" id="name"/>
+  <br/>
+  <label for="number">Enter number: </label>
+  <input type="text" th:field="*{number}" id="number"/>
+  <br/>
+  <label for="date">Enter date: </label>
+  <input type="text" th:field="*{date}" id="date"/>
+  <br/>
+  <input type="submit" value="Update!"/>
+</form>
+
+</body>
+</html>

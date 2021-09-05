@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Magazine</title>
+</head>
+<body>
+<h1> Magazine</h1>
+
+<div th:each="magazine : ${magazines}">
+    <a th:href="@{/magazine/{id}(id=${magazine.getId()})}"
+       th:text="${magazine.getName() + ' ' + magazine.getNumber()+' '+ magazine.getNumPages()+ ' ' + magazine.getDate()}">user</a>
+</div>
+
+<br/>
+<hr/>
+
+<a href="/magazine/new">Create new magazine</a> </br>
+<a href="/">Back to menu</a>
+
+</body>
+</html>

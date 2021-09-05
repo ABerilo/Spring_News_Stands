@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+<h1> Magazine info </h1>
+<p th:text="${'Name: '+magazine.getName() }">VALUE</p>
+<p th:text="${'Number: '+magazine.getNumber() }">VALUE</p>
+<p th:text="${'Date: '+magazine.getDate() }">VALUE</p>
+<p th:text="${'Num pages: '+magazine.getNumPages() }">VALUE</p>
+
+<a th:href="@{/magazine/{id}/edit(id=${magazine.getId()})}">Edit</a>
+<br/>
+<form th:method="DELETE" th:action="@{/magazine/{id}(id=${magazine.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>
