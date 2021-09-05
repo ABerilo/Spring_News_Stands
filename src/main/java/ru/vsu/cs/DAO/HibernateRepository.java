@@ -58,9 +58,10 @@ public class HibernateRepository implements IDataBase {
     }
 
     @Override
-    public void addPaper(Paper paper) {
+    public int addPaper(Paper paper) {
         Session session = getSession();
         session.save(paper);
+        return paper.getId();
     }
 
     @Override

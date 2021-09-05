@@ -2,6 +2,7 @@ package ru.vsu.cs.Models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 import static ru.vsu.cs.Models.Type.BOOK;
 
@@ -66,5 +67,18 @@ public class Book extends Paper implements Serializable {
                 ", id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return numPages == book.numPages && Objects.equals(author, book.author) && Objects.equals(publishingHouse, book.publishingHouse);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(author, publishingHouse, numPages);
     }
 }

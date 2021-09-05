@@ -2,6 +2,7 @@ package ru.vsu.cs.Models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 import static ru.vsu.cs.Models.Type.MAGAZINE;
 
@@ -63,5 +64,18 @@ public class Magazine extends Paper implements Serializable {
                 ", id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Magazine magazine = (Magazine) o;
+        return number == magazine.number && numPages == magazine.numPages && Objects.equals(date, magazine.date);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number, numPages, date);
     }
 }

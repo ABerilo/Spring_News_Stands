@@ -2,6 +2,7 @@ package ru.vsu.cs.Models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 import static ru.vsu.cs.Models.Type.NEWSPAPER;
 
@@ -51,5 +52,18 @@ public class NewsPaper extends Paper implements Serializable {
                 ", id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        NewsPaper newsPaper = (NewsPaper) o;
+        return number == newsPaper.number && Objects.equals(date, newsPaper.date);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number, date);
     }
 }

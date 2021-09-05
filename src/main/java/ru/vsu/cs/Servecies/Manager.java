@@ -34,13 +34,8 @@ public class Manager {
     }
 
     @Transactional
-    public List<Paper> getAllPaper() {
-        return iDataBase.getAllPaper();
-    }
-
-    @Transactional
-    public void addNewPaper(Paper paper) {
-        iDataBase.addPaper(paper);
+    public int addNewPaper(Paper paper) {
+        return iDataBase.addPaper(paper);
     }
 
     @Transactional

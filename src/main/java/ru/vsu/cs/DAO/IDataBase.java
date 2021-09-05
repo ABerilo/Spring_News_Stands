@@ -15,7 +15,7 @@ public interface IDataBase {
 
     Paper getPaper(final int id);
 
-    void addPaper(Paper paper);
+    int addPaper(Paper paper);
 
     void editProductBD(Paper paper);
 
